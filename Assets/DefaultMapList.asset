@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d68892e9f31c7f848837bfd3d8c88169, type: 3}
+  m_Name: DefaultMapList
+  m_EditorClassIdentifier: 
+  <Maps>k__BackingField:
+  - {fileID: 11400000, guid: 6d8f2e3228d7cb7408cd7fc89bddfda9, type: 2}
+  - {fileID: 11400000, guid: b0c742214c70b244098c3449dde137df, type: 2}
+  - {fileID: 11400000, guid: 90ada8a01911a674eb9ec63d578f380f, type: 2}
+  - {fileID: 11400000, guid: a163d11040c69aa4c900db4efe98d8c4, type: 2}
+  - {fileID: 11400000, guid: 11ffb4eb4972ed949b96a1d4a93c5900, type: 2}
+  - {fileID: 11400000, guid: 35736bd0586ffbd40b6b9fc7cc6875f6, type: 2}

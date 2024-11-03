@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 115a13cad9992df4d9a90d00aa4c331f, type: 3}
+  m_Name: turret_02_mk1
+  m_EditorClassIdentifier: 
+  <ShootSpeed>k__BackingField: 15
+  <MaxSplatterDistance>k__BackingField: 10
+  <FullChargeTime>k__BackingField: 0.25
+  <FireRate>k__BackingField: 600
+  <Upgrade>k__BackingField: {fileID: 11400000, guid: acfc91ffac393724a8083a80da58f47e, type: 2}
+  <TurretPrefab>k__BackingField: {fileID: 5217692775380228488, guid: 891cdfc27ba127648be08e232a926ab5, type: 3}
+  <DefaultSprite>k__BackingField: {fileID: 1990489366, guid: 87c91c14c19e1a44688928b3e38091fa, type: 3}
+  <ShootSound>k__BackingField: {fileID: 8300000, guid: ca7d2286a2c05f44e8cd79765cb79f0f, type: 3}

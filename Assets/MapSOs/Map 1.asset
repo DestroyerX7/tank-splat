@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd255df04431e9f4d90a9ec749fb10fb, type: 3}
+  m_Name: Map 1
+  m_EditorClassIdentifier: 
+  <MapPrefab>k__BackingField: {fileID: 5885454600399407243, guid: ab89a32ff2cc1ee498b0b85ee0ed95b5, type: 3}
+  <CameraFov>k__BackingField: 5
+  <SpawnPositions>k__BackingField:
+  - {x: -5, y: 0}
+  - {x: 5, y: 0}
+  - {x: 0, y: 3}
+  - {x: 0, y: -3}
+  <Sprite>k__BackingField: {fileID: 21300000, guid: 94e19c455b303da48a3b6e9ef9344914, type: 3}

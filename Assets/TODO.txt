@@ -1,0 +1,15 @@
+-- Make UI look better
+-- Think of better upgrade card
+-- Make local player work
+-- Add a help menu that shows instructions and keybinds
+-- Allow for key rebinding
+-- Add Sound
+-- Add a menu to adjust sound and settings
+-- Make more maps
+-- Make all the turret upgrades and make upgrade card tell you when you cant upgrade anymore
+-- Figure out best way to shoot bullets
+
+-- Bugs --
+
+-- Fix bug where pooled objects break when player disconnects while they are still active
+-- Fix rocket

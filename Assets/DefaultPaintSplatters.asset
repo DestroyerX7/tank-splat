@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ef5c0040534dff4480b835b2636a887, type: 3}
+  m_Name: DefaultPaintSplatters
+  m_EditorClassIdentifier: 
+  <PaintSplatterSprites>k__BackingField:
+  - {fileID: 21300000, guid: dfd2a1c328fdaa742b5ec4f01855c396, type: 3}
+  - {fileID: 21300000, guid: 2c030c379e4812d4fa8275619e66d31a, type: 3}
+  - {fileID: 21300000, guid: 04f8564c39207454989bec80273495c9, type: 3}
+  - {fileID: 21300000, guid: 2239df598b80c9f47bad5128bc58416f, type: 3}
+  - {fileID: 21300000, guid: 488cc5bf1337a774ab46b4cc052ac2d6, type: 3}
+  - {fileID: 21300000, guid: 2ca149efdc1eee94e9b6c62af2029e20, type: 3}
+  - {fileID: 21300000, guid: 25ca28c0ef51aa343867c20578cb7286, type: 3}
+  - {fileID: 21300000, guid: f3a1ce02303a6154488ddba97b3a2334, type: 3}
+  - {fileID: 21300000, guid: e0dc1da76ad633c47a603f1da25a7663, type: 3}
+  - {fileID: 21300000, guid: 2809ac2ca60be904293baa007594f69d, type: 3}
+  <PaintSplatterAudioClips>k__BackingField:
+  - {fileID: 8300000, guid: 0aab16c11aee44846a6b4d37b6b062be, type: 3}
+  - {fileID: 8300000, guid: e263c2231749f494b87bfd9ffe5c8e78, type: 3}
+  - {fileID: 8300000, guid: f6397bf53c8ddf142ac0de005a23121b, type: 3}
+  - {fileID: 8300000, guid: e494591a41b881e4da9c985789df5c97, type: 3}
+  - {fileID: 8300000, guid: b5ff275051bdd00469543cccb1c8efec, type: 3}
+  - {fileID: 8300000, guid: cbebe522d5463a0459c3747d281b5e29, type: 3}
+  - {fileID: 8300000, guid: 5620943cbc44c1f41a481b3e41fc7ef9, type: 3}
