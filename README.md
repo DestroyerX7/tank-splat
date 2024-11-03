@@ -1,1 +1,1 @@
-# tank-splat
+This is a multiplayer game that I worked on for around a month. This is definetley the biggest and most complex project I have worked on. It has taught me a lot about Unity and multiplayer concepts. Single player does not work and I know there are bugs because the code is kind of ganky. All that being siad, I am still very proud of what I was able to create, and I hope that I improve it sometime in the future.
