@@ -22,7 +22,7 @@ public class LobbyList : MonoBehaviour
     {
         try
         {
-            QueryResponse foundLobbies = await Lobbies.Instance.QueryLobbiesAsync();
+            QueryResponse foundLobbies = await LobbyService.Instance.QueryLobbiesAsync();
 
             if (this == null)
             {

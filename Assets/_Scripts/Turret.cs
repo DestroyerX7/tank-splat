@@ -86,7 +86,7 @@ public class Turret : NetworkBehaviour
 
             NetworkObject bullet = Instantiate(_bulletPrefab, shootPos.position, shootPos.rotation);
             Vector2 velocity = shootPos.up * _turretSO.ShootSpeed;
-            bullet.GetComponent<Rigidbody2D>().velocity = velocity;
+            bullet.GetComponent<Rigidbody2D>().linearVelocity = velocity;
             bullet.GetComponent<Bullet>().SetSplatterDistance(shootPos.position, _currentSplatterDistance);
             bullet.GetComponent<Bullet>().SetOwnerClientId(OwnerClientId);
 
@@ -127,7 +127,7 @@ public class Turret : NetworkBehaviour
             float currentTick = NetworkManager.Singleton.ServerTime.Tick;
             float timeDifference = (float)(currentTick - shotTick) / NetworkManager.Singleton.LocalTime.TickRate;
             NetworkObject bullet = Instantiate(_bulletPrefab, bulletData.Pos, bulletData.Rotation);
-            bullet.GetComponent<Rigidbody2D>().velocity = bulletData.Velocity;
+            bullet.GetComponent<Rigidbody2D>().linearVelocity = bulletData.Velocity;
             bullet.GetComponent<Bullet>().SetSplatterDistance(bulletData.Pos, bulletData.SplatterDistance);
             bullet.GetComponent<Bullet>().SetOwnerClientId(ownerClientId);
 

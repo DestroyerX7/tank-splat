@@ -48,7 +48,7 @@ public class TankController : NetworkBehaviour
     private void Move()
     {
         Vector2 moveInput = _moveAction.ReadValue<Vector2>();
-        _rb.velocity = TankBodySO.MoveSpeed * _speedMultiplier * moveInput.y * transform.up;
+        _rb.linearVelocity = TankBodySO.MoveSpeed * _speedMultiplier * moveInput.y * transform.up;
 
         transform.Rotate(TankBodySO.RotateSpeed * _speedMultiplier * moveInput.x * Time.deltaTime * Vector3.back);
     }

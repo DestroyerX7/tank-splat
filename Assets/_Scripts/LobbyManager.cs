@@ -10,6 +10,7 @@ using Unity.Netcode;
 using Unity.Netcode.Transports.UTP;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
+using Unity.Networking.Transport.Relay;
 
 [DisallowMultipleComponent]
 public class LobbyManager : MonoBehaviour
@@ -83,20 +84,22 @@ public class LobbyManager : MonoBehaviour
 
         try
         {
-            Allocation allocation = await Relay.Instance.CreateAllocationAsync(MAX_PLAYERS - 1); // Excludes the host
-            string allocationJoinCode = await Relay.Instance.GetJoinCodeAsync(allocation.AllocationId);
+            Allocation allocation = await RelayService.Instance.CreateAllocationAsync(MAX_PLAYERS);
+            string allocationJoinCode = await RelayService.Instance.GetJoinCodeAsync(allocation.AllocationId);
 
             CreateLobbyOptions options = new()
             {
                 Data = new()
                 {
-                    { RELAY_JOIN_CODE_KEY, new(DataObject.VisibilityOptions.Member, allocationJoinCode) }
+                    { RELAY_JOIN_CODE_KEY, new(DataObject.VisibilityOptions.Public, allocationJoinCode) }
                 },
                 IsPrivate = isPrivate
             };
-            JoinedLobby = await Lobbies.Instance.CreateLobbyAsync(lobbyName, MAX_PLAYERS, options);
+            JoinedLobby = await LobbyService.Instance.CreateLobbyAsync(lobbyName, MAX_PLAYERS, options);
 
-            NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(new(allocation, RELAY_CONNECTION_TYPE));
+            RelayServerData relayServerData = allocation.ToRelayServerData(RELAY_CONNECTION_TYPE);
+            NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(relayServerData);
+
             NetworkManager.Singleton.StartHost();
             NetworkManager.Singleton.SceneManager.LoadScene("Game Setup", LoadSceneMode.Single);
         }
@@ -115,10 +118,12 @@ public class LobbyManager : MonoBehaviour
 
         try
         {
-            JoinedLobby = await Lobbies.Instance.JoinLobbyByIdAsync(lobbyId);
+            JoinedLobby = await LobbyService.Instance.JoinLobbyByIdAsync(lobbyId);
+            JoinAllocation joinAllocation = await RelayService.Instance.JoinAllocationAsync(JoinedLobby.Data[RELAY_JOIN_CODE_KEY].Value);
 
-            JoinAllocation joinAllocation = await Relay.Instance.JoinAllocationAsync(JoinedLobby.Data[RELAY_JOIN_CODE_KEY].Value);
-            NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(new(joinAllocation, RELAY_CONNECTION_TYPE));
+            RelayServerData relayServerData = joinAllocation.ToRelayServerData(RELAY_CONNECTION_TYPE);
+            NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(relayServerData);
+
             NetworkManager.Singleton.StartClient();
         }
         catch (Exception e)
@@ -136,10 +141,12 @@ public class LobbyManager : MonoBehaviour
 
         try
         {
-            JoinedLobby = await Lobbies.Instance.JoinLobbyByCodeAsync(lobbyCode);
+            JoinedLobby = await LobbyService.Instance.JoinLobbyByCodeAsync(lobbyCode);
+            JoinAllocation joinAllocation = await RelayService.Instance.JoinAllocationAsync(JoinedLobby.Data[RELAY_JOIN_CODE_KEY].Value);
 
-            JoinAllocation joinAllocation = await Relay.Instance.JoinAllocationAsync(JoinedLobby.Data[RELAY_JOIN_CODE_KEY].Value);
-            NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(new(joinAllocation, RELAY_CONNECTION_TYPE));
+            RelayServerData relayServerData = joinAllocation.ToRelayServerData(RELAY_CONNECTION_TYPE);
+            NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(relayServerData);
+
             NetworkManager.Singleton.StartClient();
         }
         catch (Exception e)
@@ -157,7 +164,7 @@ public class LobbyManager : MonoBehaviour
 
         try
         {
-            await Lobbies.Instance.SendHeartbeatPingAsync(JoinedLobby.Id);
+            await LobbyService.Instance.SendHeartbeatPingAsync(JoinedLobby.Id);
         }
         catch (Exception e)
         {
@@ -171,7 +178,7 @@ public class LobbyManager : MonoBehaviour
         {
             if (JoinedLobby != null)
             {
-                await Lobbies.Instance.RemovePlayerAsync(JoinedLobby.Id, _playerId);
+                await LobbyService.Instance.RemovePlayerAsync(JoinedLobby.Id, _playerId);
                 JoinedLobby = null;
             }
 
